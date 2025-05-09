@@ -43,7 +43,7 @@ if (navigator.geolocation) {
 // Configuração da API
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:3000'
-    : 'https://seu-backend-url.com'; // Substitua pela URL do seu backend em produção
+    : 'https://web-production-3c00e.up.railway.app'; // URL do backend em produção
 
 // Função para salvar eventos no localStorage
 function saveEvents() {
