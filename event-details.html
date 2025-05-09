@@ -117,6 +117,12 @@
       </div>
     </div>
     <script>
+      const API_URL =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"
+          ? "http://localhost:3000"
+          : "https://web-production-3c00e.up.railway.app";
+
       let currentEventId = null;
       let currentUser = null;
       let messagePollingInterval = null;
@@ -128,9 +134,7 @@
         currentEventId = eventId;
 
         try {
-          const response = await fetch(
-            `http://localhost:3000/api/events/${eventId}`
-          );
+          const response = await fetch(`${API_URL}/api/events/${eventId}`);
           if (!response.ok) throw new Error("Evento não encontrado");
 
           const event = await response.json();
@@ -202,7 +206,7 @@
           console.log("Carregando mensagens com token:", token);
 
           const response = await fetch(
-            `http://localhost:3000/api/events/${currentEventId}/messages`,
+            `${API_URL}/api/events/${currentEventId}/messages`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -262,7 +266,7 @@
           console.log("Enviando mensagem com token:", token);
 
           const response = await fetch(
-            `http://localhost:3000/api/events/${currentEventId}/messages`,
+            `${API_URL}/api/events/${currentEventId}/messages`,
             {
               method: "POST",
               headers: {
@@ -343,14 +347,11 @@
         }
 
         try {
-          const response = await fetch(
-            "http://localhost:3000/api/verify-token",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await fetch(`${API_URL}/api/verify-token`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           if (!response.ok) {
             localStorage.removeItem("token");
