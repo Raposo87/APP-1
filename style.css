@@ -1,0 +1,328 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7fa;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #4f46e5;
+    color: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem;
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: 500;
+}
+
+input, textarea, select, button {
+    font-size: 1rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 0.2rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid #4f46e5;
+    border-color: #4f46e5;
+}
+
+button {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+#filter-bar {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#events-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.event-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    min-width: 250px;
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.event-date {
+    font-size: 1rem;
+    color: #222;
+}
+
+.event-location {
+    font-size: 0.98rem;
+    color: #444;
+}
+
+.event-description {
+    font-size: 0.97rem;
+    color: #333;
+}
+
+.event-category {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+}
+
+.event-contact {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0;
+    }
+    section {
+        padding: 1rem 0.5rem;
+    }
+    .event-card {
+        padding: 0.7rem 0.5rem;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #e0e7ff;
+    color: #333;
+    font-size: 0.95rem;
+    border-top: 1px solid #c7d2fe;
+}
+
+/* Estilos para o carrossel de eventos das próximas 5 horas */
+#carousel-section {
+    margin-bottom: 2rem;
+}
+
+#carousel-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+#carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    margin: 0 0.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.carousel-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.carousel-item h3 {
+    font-size: 1.2rem;
+    color: #4f46e5;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-item p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0.2rem 0;
+}
+
+.event-distance {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsividade para o carrossel */
+@media (max-width: 600px) {
+    #carousel-container {
+        height: 150px;
+    }
+    .carousel-item {
+        padding: 0.5rem;
+    }
+    .carousel-item h3 {
+        font-size: 1rem;
+    }
+    .carousel-item p {
+        font-size: 0.8rem;
+    }
+}
+
+#auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#login-button, #register-button {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#login-button:hover, #register-button:hover {
+    background: #3730a3;
+}
+
+/* Estilos para os modais */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+} 

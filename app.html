@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
+    />
+    <title>Lombrow - Eventos</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app-page">
+    <header>
+      <h1>Lombrow</h1>
+      <div class="user-info">
+        <p>Não logado</p>
+      </div>
+      <button id="logout-button" class="logout-button" style="display: none">
+        Sair
+      </button>
+    </header>
+    <main>
+      <section class="event-form-section">
+        <h2>Anunciar Novo Evento</h2>
+        <button id="show-event-form" class="primary-button">
+          Criar Evento
+        </button>
+        <form id="event-form" style="display: none">
+          <div class="form-group">
+            <label for="event-name">Nome do Evento:</label>
+            <input type="text" id="event-name" required />
+          </div>
+          <div class="form-group">
+            <label for="event-date">Data e Hora de Início:</label>
+            <input type="datetime-local" id="event-date" required />
+          </div>
+          <div class="form-group">
+            <label for="event-end-date">Data e Hora de Término:</label>
+            <input type="datetime-local" id="event-end-date" required />
+          </div>
+          <div class="form-group">
+            <label for="event-location">Local:</label>
+            <input type="text" id="event-location" required />
+          </div>
+          <div class="form-group">
+            <label for="event-description">Descrição:</label>
+            <textarea id="event-description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="event-category">Categoria:</label>
+            <select id="event-category" required>
+              <option value="">Selecione uma categoria</option>
+              <option value="Festa">Festa</option>
+              <option value="Show">Show</option>
+              <option value="Teatro">Teatro</option>
+              <option value="Esporte">Esporte</option>
+              <option value="Gastronomia">Gastronomia</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="event-contact">Contato:</label>
+            <input type="text" id="event-contact" />
+          </div>
+          <div class="form-group">
+            <label for="event-image">Imagem do Evento:</label>
+            <input type="file" id="event-image" accept="image/*" />
+          </div>
+          <button type="submit" class="primary-button">Concluir</button>
+        </form>
+      </section>
+      <section class="events-section">
+        <h2>Eventos</h2>
+        <div class="filter-bar">
+          <select id="category-filter">
+            <option value="">Todas as categorias</option>
+            <option value="Festa">Festa</option>
+            <option value="Show">Show</option>
+            <option value="Teatro">Teatro</option>
+            <option value="Esporte">Esporte</option>
+            <option value="Gastronomia">Gastronomia</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div id="events-container">
+          <!-- Eventos serão inseridos aqui via JavaScript -->
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Projeto de demonstração - Um backend seria necessário para uso real</p>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>
